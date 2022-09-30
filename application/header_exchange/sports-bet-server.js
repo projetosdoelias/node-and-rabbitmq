@@ -1,19 +1,22 @@
-console.log("Politics news server started!");
+console.log("Sports Caregory bet server started!");
 const queue = require("../queue");
 
 const options = {
-    "exchange": 'ex.news',
-    "exchangeType": 'topic',
-    "routingKey": '*.news.politics.#',
-    "queueName": 'q.news.politics'
+    "exchange": 'ex.bet',
+    "exchangeType": 'headers',
+    "routingKey": '',
+    "queueName": 'q.bet.sports',
+    "bindOpts": { "category": "sports", "x-match": "any" }
 };
 
 queue.consumeExchange(options, (message) => {
+    
     const objMessage = JSON.parse(message.content.toString());
-    let title = (objMessage && objMessage.title) ? objMessage.title : null;
-    let category = (objMessage && objMessage.category) ? objMessage.category : null;
+    let team = (objMessage && objMessage.team) ? objMessage.team : null;
+    let value = (objMessage && objMessage.value) ? objMessage.value : null;
+    let sport = (objMessage && objMessage.subcategory) ? objMessage.subcategory : null;
 
-    console.log('Your news from the"' + category + ' category ", with the title "' + title + '" will be processed!' );
-    console.log('Sua notícia de categoria "' + category + '", com o título "' + title + '" será processada!' );
+    console.log(`Your bet on ${sport} with value: ${value}  on ${team} team will be processed!` );
+    console.log(`Sua aposta no esport ${sport} com valor de: ${value} no time ${team} será processada!` );
     
 })

@@ -6,7 +6,7 @@ const options = {
     "exchangeType": 'headers',
     "routingKey": '',
     "queueName": 'q.bet.basketball',
-    "bindOpts": { "category": "sport", "subcategory": "basketball", "x-match": "all" }
+    "bindOpts": { "category": "sports", "subcategory": "basketball", "x-match": "all" }
 };
 
 queue.consumeExchange(options, (message) => {

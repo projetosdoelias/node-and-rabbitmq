@@ -1,8 +1,14 @@
 
 function connect() {
-    return require('amqplib').connect("amqp://guest:guest@localhost")
+
+    const user       ='guest'
+    const password   ='guest'
+    const host       ='localhost'
+
+    return require('amqplib').connect(`amqp://${user}:${password}@${host}`)
         .then(conn => conn.createChannel());
 }
+
 
 function createQueue(channel, queue) {
     return new Promise((resolve, reject) => {
@@ -30,12 +36,12 @@ function consume(queue, callback) {
 
 function consumeExchange( params, callback ) {
 
-    const {exchange, exchangeType, routingKey, options, queueName} = params;
+    const {exchange, exchangeType, routingKey, options, queueName, bindOpts} = params;
     connect()
         .then(async (channel) => {
             await channel.assertExchange(exchange, exchangeType, options);
             const { queue } = await channel.assertQueue(queueName, options);
-            channel.bindQueue(queue, exchange, routingKey);
+            channel.bindQueue(queue, exchange, routingKey, bindOpts);
             channel.consume(queue, callback, { noAck: true })
         })
         .catch(err => console.log(err))

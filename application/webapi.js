@@ -35,6 +35,7 @@ router.post('/news', (req, res) => {
     
     if((!req.body.category) ||  (!acceptedCategories.includes(req.body.category)) ){
         res.status(500).send('This service just process the categories "sports" and "politics"! \n Este serviço só processa as categorias "sports" e "politics" !');
+        return;
     }
 
     let routingKey = 'event.news.' + req.body.category;
@@ -59,8 +60,37 @@ router.post('/news', (req, res) => {
 });
 
 
+// headers
+router.post('/bet', (req, res) => {
+    
+    const acceptedCategories = ["sports"];
+    
+    if((!req.body.category) ||  (!acceptedCategories.includes(req.body.category)) ){
+        res.status(500).send('This service just process the category "sports" ! \n Este serviço só processa a categoria "sports"!');
+        return;
+    }
 
-// Header
+    let opt = { headers: { 'category': req.body.category  }}
+
+    if(req.body.subcategory) {
+        opt.headers.subcategory =  req.body.subcategory;
+    }
+
+    options = {
+        "exchange" : 'ex.bet',
+        "exchangeType": 'headers',
+        "payload": req.body,
+        "routingKey": '',
+        "options" : opt
+    }
+    
+    queue.sendToExchange(options);
+
+    res.json({message: 'Your bet will be processed!'});
+    
+});
+
+
 
 app.use('/', router);
  
