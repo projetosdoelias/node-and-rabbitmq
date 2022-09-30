@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "2be91ee1-e5d6-4537-9bf8-8218871cbf12",
+		"name": "RabbitMQ-Local-Examples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bet services (Headers Exchange)",
+			"item": [
+				{
+					"name": "BET - Soccer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"value\" : 100.0,\n    \"team\": \"Chelsea\",\n    \"category\": \"sports\",\n    \"subcategory\": \"soccer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3005/bet",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"bet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BET - Basketball",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"value\" : 1000.0,\n    \"team\": \"LA lakers\",\n    \"category\": \"sports\",\n    \"subcategory\": \"basketball\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3005/bet",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"bet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BET - Other sports",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"value\" : 1000.0,\n    \"team\": \"Gabriel Medina\",\n    \"category\": \"sports\",\n    \"subcategory\": \"surf\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3005/bet",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"bet"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Buy (Fanout Exchange)",
+			"item": [
+				{
+					"name": "BUY",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Some Great Guy\",\n    \"email\" : \"customer@mail.com\",\n    \"card\" : {\n        \"number\" : \"1111 2222 3333 4444\",\n        \"valid\" : \"1222\",\n        \"serurity_number\" : \"123\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3005/buy",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"buy"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task (Direct message)",
+			"item": [
+				{
+					"name": "Task Direct Queue",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"tameeeee tame WITH AUTH 21\",\n    \"key\" : \"hello_world\",\n    \"value\" : {\n        \"e\" : \"e noixxxxxxxxxxxx\",\n        \"v\" : 6666666699999999\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3005/task",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"task"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "News (Topic exchange)",
+			"item": [
+				{
+					"name": "NEWS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"Brasil Hexa!\",\n    \"text\" : \"Alguma noticia qualquer....\",\n    \"category\": \"sports\",\n    \"subcategory\": \"soccer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3005/news",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"news"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
