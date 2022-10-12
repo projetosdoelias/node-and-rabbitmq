@@ -133,7 +133,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\" : \"tameeeee tame WITH AUTH 21\",\n    \"key\" : \"hello_world\",\n    \"value\" : {\n        \"e\" : \"e noixxxxxxxxxxxx\",\n        \"v\" : 6666666699999999\n    }\n}",
+							"raw": "{\n    \"name\" : \"Do that task\",\n    \"key\" : \"123456789\",\n    \"Data\" : {\n        \"description\" : \"Some description\",\n        \"deadline\" : \"2022-11-11\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -159,13 +159,67 @@
 			"name": "News (Topic exchange)",
 			"item": [
 				{
-					"name": "NEWS",
+					"name": "Soccer news",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"title\" : \"Brasil Hexa!\",\n    \"text\" : \"Alguma noticia qualquer....\",\n    \"category\": \"sports\",\n    \"subcategory\": \"soccer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3005/news",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "other subcategory news",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"Filipe Toledo campeão!\",\n    \"text\" : \"Filipe 77 o grande campeão mundial 2022 ......\",\n    \"category\": \"sports\",\n    \"subcategory\": \"surf\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3005/news",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Politics news",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"Eleições 2022!\",\n    \"text\" : \"A voz do povo diz, fora Boloniro....\",\n    \"category\": \"politics\",\n    \"subcategory\": \"election\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"

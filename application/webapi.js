@@ -8,7 +8,7 @@ const router = express.Router();
  
 // Directs
 router.post('/task', (req, res) => {
-    queue.sendToQueue("fila1", req.body);
+    queue.sendToQueue("q.task", req.body);
     res.json({message: 'Your request will be processed!'});
 });
 
